@@ -18,6 +18,7 @@ export function ScreenshotPlaceholder({ description }: ScreenshotPlaceholderProp
             <ScreenIcon />
           </div>
           <p className="screenshot-ph__title">Screenshot Placeholder</p>
+          <p className="screenshot-ph__capture-label">What to capture</p>
           <p className="screenshot-ph__description">{description}</p>
           <span className="screenshot-ph__badge">
             <span aria-hidden="true">📸</span>

@@ -3,132 +3,141 @@ import type { Lesson } from '../../types'
 export const tipsLesson: Lesson = {
   id: 'tips-shortcuts',
   sectionId: 'tips',
-  title: 'Pro Tips & Hidden Features',
+  title: 'Pro Tips & Navigation',
   description:
-    'Shortcuts, Command Palette tricks, workspace habits, and Git integration — the details that make power users fast.',
-  duration: '9 min read',
+    'Shortcuts, Command Palette, switching between Agents Window and Editor, Git integration, and habits that make beginners productive fast.',
+  duration: '10 min read',
   objectives: [
-    'Use essential keyboard shortcuts fluently',
-    'Find any Cursor action via the Command Palette',
-    'Work efficiently across projects and monorepos',
-    'Use Git and @Git for reviews and commit messages',
+    'Switch between Agents Window and Editor without getting lost',
+    'Use Command Palette, Quick Open, and search effectively',
+    'Integrate Git and @Git into agent workflows',
+    'Work across multiple projects and workspaces',
   ],
   blocks: [
     {
       type: 'paragraph',
       content:
-        'You do not need fifty shortcuts memorized. Learn the core set below, use the Command Palette for everything else, and adopt a few habits that compound over every session.',
+        'Cursor 3 adds a new navigation layer: two windows, multiple agents, optional cloud sessions. You do not need every shortcut — learn the switching commands first, then add power-user habits.',
     },
-    { type: 'heading', content: 'Essential Keyboard Shortcuts', level: 2 },
-    {
-      type: 'screenshot',
-      description:
-        'Keyboard shortcuts reference (⌘K ⌘S) filtered to show Cursor-specific bindings.',
-    },
-    {
-      type: 'paragraph',
-      content: 'AI shortcuts (Ctrl on Windows/Linux):',
-    },
-    { type: 'shortcut', keys: ['⌘', 'L'], description: 'Open Chat' },
-    { type: 'shortcut', keys: ['⌘', 'I'], description: 'Open Composer' },
-    { type: 'shortcut', keys: ['⌘', 'K'], description: 'Inline edit (select code first)' },
-    { type: 'shortcut', keys: ['⌘', 'Shift', 'L'], description: 'Add selection to Chat' },
-    { type: 'shortcut', keys: ['Tab'], description: 'Accept autocomplete' },
-    { type: 'shortcut', keys: ['Esc'], description: 'Dismiss suggestion or inline prompt' },
-    { type: 'heading', content: 'Navigation Shortcuts', level: 3 },
-    { type: 'shortcut', keys: ['⌘', 'P'], description: 'Quick Open file' },
-    { type: 'shortcut', keys: ['⌘', 'Shift', 'P'], description: 'Command Palette' },
-    { type: 'shortcut', keys: ['⌘', 'Shift', 'F'], description: 'Search in files' },
-    { type: 'shortcut', keys: ['⌘', 'B'], description: 'Toggle sidebar' },
-    { type: 'shortcut', keys: ['Ctrl', '`'], description: 'Toggle terminal' },
-    { type: 'shortcut', keys: ['⌘', '\\'], description: 'Split editor' },
-    { type: 'divider' },
-    { type: 'heading', content: 'Using the Command Palette', level: 2 },
-    {
-      type: 'paragraph',
-      content:
-        '⌘Shift+P opens every action in Cursor. Type to filter — no menu hunting.',
-    },
-    {
-      type: 'screenshot',
-      description:
-        'The Command Palette open with "Cursor" typed in the search box to filter AI actions.',
-    },
+    { type: 'heading', content: 'Switching Views (Most Important)', level: 2 },
     {
       type: 'list',
       items: [
-        'Type "Cursor" — filter AI commands (Chat, Composer, rules)',
-        'Type "Format Document" — format current file',
-        'Type "Git: Commit" — commit from keyboard',
-        'Type "Reload Window" — fix odd extension or AI behavior',
+        '⌘Shift+P → "Open Agents Window" — AI mission control',
+        '⌘Shift+P → "Open Editor Window" — classic IDE for reading code',
+        'File → New Agent Window — additional agent workspace',
+        'Both can run simultaneously on macOS/Windows as separate windows',
       ],
+    },
+    {
+      type: 'screenshot',
+      description:
+        'Capture your desktop with both Cursor windows visible side by side: Agents Window on the left (agent conversation active) and Editor Window on the right (file tree + code tabs open on the same project).',
+    },
+    {
+      type: 'tip',
+      content:
+        'Beginner loop: Agents Window to task → Editor to read results → Terminal in Editor to test → back to Agents Window for fixes.',
+    },
+    { type: 'divider' },
+    { type: 'heading', content: 'Essential Shortcuts', level: 2 },
+    {
+      type: 'screenshot',
+      description:
+        'Capture Keyboard Shortcuts editor (⌘K then ⌘S) with search box containing "agents" or "cursor", showing bindings for Open Agents Window and Open Editor Window.',
+    },
+    {
+      type: 'paragraph',
+      content: 'Windows/Linux: Ctrl instead of ⌘.',
+    },
+    { type: 'shortcut', keys: ['⌘', 'Shift', 'P'], description: 'Command Palette — switch views, run any action' },
+    { type: 'shortcut', keys: ['⌘', 'P'], description: 'Quick Open file (Agents Window & Editor)' },
+    { type: 'shortcut', keys: ['⌘', 'Shift', 'E'], description: 'File Explorer (Editor)' },
+    { type: 'shortcut', keys: ['⌘', 'Shift', 'F'], description: 'Search all files' },
+    { type: 'shortcut', keys: ['⌘', 'Shift', 'G'], description: 'Source Control / Git panel' },
+    { type: 'shortcut', keys: ['⌘', 'K'], description: 'Inline edit (Editor, selection required)' },
+    { type: 'shortcut', keys: ['Ctrl', '`'], description: 'Toggle terminal (Editor)' },
+    { type: 'shortcut', keys: ['⌘', 'B'], description: 'Toggle sidebar (Editor)' },
+    { type: 'shortcut', keys: ['Tab'], description: 'Accept autocomplete' },
+    { type: 'divider' },
+    { type: 'heading', content: 'Command Palette Power Uses', level: 2 },
+    {
+      type: 'paragraph',
+      content:
+        '⌘Shift+P is the universal "find anything" command. When the UI moves between Cursor versions, the palette stays consistent.',
+    },
+    {
+      type: 'screenshot',
+      description:
+        'Capture Command Palette open with "Open Agents" typed — results show "Open Agents Window" and "Open Editor Window" at the top of the filtered list.',
     },
     {
       type: 'code',
-      title: 'Useful Command Palette searches',
+      title: 'High-value palette searches',
       language: 'text',
-      content: `Cursor: Open Chat
-Cursor: Open Composer
-Git: View History
+      content: `Open Agents Window
+Open Editor Window
+View: Toggle Terminal
+Git: Commit
 Preferences: Open Keyboard Shortcuts
-File: Compare Active File With...`,
-    },
-    {
-      type: 'tip',
-      content: 'Press ⌘K then ⌘S to open Keyboard Shortcuts. Search "cursor" and click any binding to reassign it.',
+Outline: Focus on Outline View`,
     },
     { type: 'divider' },
-    { type: 'heading', content: 'Working with Multiple Workspaces', level: 2 },
+    { type: 'heading', content: 'Multi-Workspace & Agents Window', level: 2 },
+    {
+      type: 'paragraph',
+      content:
+        'The Agents Window supports multi-workspace (Cursor 3+): manage agents across different repos from one place. The Editor still opens one folder (or multi-root workspace) at a time.',
+    },
     {
       type: 'list',
       items: [
-        '⌘Shift+N — New window for a second project side by side',
-        'File → Open Recent — jump between repos quickly',
-        'Add Folder to Workspace — monorepos with multiple packages in one window',
-        'One .cursorrules per project root — conventions differ per repo',
-        'Separate Chat threads per task; separate windows per project',
+        'Agents Window — See and switch between agent sessions tied to different repos.',
+        'Editor — File → Open Folder for one project; File → Add Folder to Workspace for monorepos.',
+        'One .cursorrules per project root — agents pick up rules for the active workspace.',
+        'New agent session per task — avoids context bleed between unrelated work.',
       ],
     },
     {
       type: 'screenshot',
       description:
-        'File → Add Folder to Workspace with a monorepo packages/ folder structure visible.',
+        'Capture the Agents Window session list showing two entries with different repo or folder names (e.g. "frontend-app" and "api-service"), demonstrating multi-workspace agent management.',
     },
     {
       type: 'tip',
       content:
-        'Monorepo: use .cursor/rules/ with globs (e.g. packages/web/**/*) so frontend rules do not leak into backend.',
+        'Monorepos: .cursor/rules/ with globs (packages/web/**/*) so frontend rules do not apply to backend agents.',
     },
     { type: 'divider' },
-    { type: 'heading', content: 'Integrating with Git', level: 2 },
+    { type: 'heading', content: 'Git Integration', level: 2 },
     {
       type: 'paragraph',
       content:
-        'Use the Source Control panel for visual diffs. Use @Git in Chat for AI-assisted review and commit messages.',
+        'Review visually in Editor Source Control. Review with AI via @Git in the Agents Window. Cursor 3\'s Agents Window also improves diff and commit flows — use whichever surface you prefer.',
     },
     {
       type: 'screenshot',
       description:
-        'The Source Control panel with staged changes and a side-by-side diff open.',
+        'Capture Editor Source Control panel (⌘Shift+G): staged files listed, one file selected showing inline diff with green/red changes, commit message box at top.',
     },
     {
       type: 'steps',
       items: [
         {
-          title: 'Stage your changes',
-          content: '⌘Shift+G → review each file diff → stage what belongs in this commit.',
+          title: 'Stage changes',
+          content: 'Editor → ⌘Shift+G → review diffs → stage files for one logical commit.',
         },
         {
-          title: 'AI pre-PR review',
-          content: 'Chat: "@Git @src/ — review for bugs, security, missing tests. List by severity."',
+          title: 'AI review',
+          content: 'Agents Window, Ask mode: "@Git @src/ — review for bugs, security, missing tests."',
         },
         {
-          title: 'Commit message help',
-          content: '"@Git — suggest a conventional commit message for staged changes."',
+          title: 'Commit message',
+          content: 'Agent prompt: "@Git — suggest conventional commit message for staged changes."',
         },
         {
-          title: 'Commit and push',
-          content: 'Use the Source Control UI or Command Palette → "Git: Commit".',
+          title: 'Commit',
+          content: 'Source Control UI or Command Palette → "Git: Commit".',
         },
       ],
     },
@@ -136,7 +145,9 @@ File: Compare Active File With...`,
       type: 'code',
       title: 'Pre-PR review',
       language: 'text',
-      content: `@Git @src/
+      content: `Ask mode — do not edit files.
+
+@Git @src/
 
 Review my branch before I open a PR:
 - Bugs and edge cases
@@ -144,24 +155,25 @@ Review my branch before I open a PR:
 - Pattern consistency
 - Missing tests
 
-By severity. Do not fix yet.`,
+List by severity.`,
     },
-    { type: 'heading', content: 'Hidden Features Worth Knowing', level: 2 },
+    { type: 'heading', content: 'Features Worth Knowing', level: 2 },
     {
       type: 'list',
       items: [
-        'Ask mode — Chat without edits. Perfect for learning unfamiliar code.',
-        'Notepads — Reusable prompt snippets (search "Notepad" in Command Palette).',
-        'Docs indexing — Cursor Settings → add library docs for accurate @Docs answers.',
-        'Right-click → Add to Chat — instant @ context from any file or selection.',
-        'Pin chats — keep long-running feature work at the top of history.',
-        'Paste screenshots — UI bugs and error dialogs work as image context in Chat.',
+        'Ask mode — Read-only agent for learning code (no diffs to reject).',
+        'Plan mode — Architecture and step lists before any edits.',
+        'Worktrees — Parallel agents on isolated git checkouts.',
+        'Cloud agents — Long tasks run without keeping your machine open.',
+        'Right-click → Add to Chat — Attach files from Explorer (Editor) to your next agent prompt.',
+        'Paste screenshots — Drop UI bug screenshots into the Agents Window prompt.',
+        'Docs indexing — Cursor Settings → index library docs for accurate @Docs answers.',
       ],
     },
     {
       type: 'tip',
       content:
-        'Every new project: add .cursorrules + one "map the codebase" Chat prompt. Five minutes upfront saves hours of misprompted edits.',
+        'First hour on a new repo: .cursorrules + Ask mode prompt "@src/ — map the codebase in 5 bullets." Saves hours of confused agent sessions.',
     },
   ],
 }

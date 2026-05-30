@@ -39,8 +39,8 @@ export function Hero({ activeSection, onNavigate }: HeroProps) {
             </p>
             <h1 className="hero__title">{currentTitle}</h1>
             <p className="hero__subtitle">
-              Part of the Cursor Mastery learning path — practical skills you can
-              apply in your editor today.
+              Updated for Cursor 3 — Agents Window, Editor, and practical workflows
+              you can use today.
             </p>
           </>
         ) : (

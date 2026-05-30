@@ -5,188 +5,266 @@ export const interfaceLesson: Lesson = {
   sectionId: 'interface',
   title: 'Understanding the Cursor Interface',
   description:
-    'A practical tour of Cursor\'s layout — where to chat, where to run agents, and how to attach context so the AI actually helps.',
-  duration: '10 min read',
+    'Cursor has two main views — the Agents Window (where you work with AI) and the Editor (where you read and edit code). This lesson shows you how to switch between them and find your way around.',
+  duration: '12 min read',
   objectives: [
-    'Choose between Chat, Composer, and inline edit for any task',
-    'Navigate the Activity Bar, sidebars, and editor confidently',
-    'Use the terminal and @ mentions to give Cursor real context',
-    'Memorize the handful of shortcuts that matter most',
+    'Open the Agents Window and understand what it is for',
+    'Switch to the Editor to browse files and review code',
+    'Use the File Explorer, terminal, and Command Palette confidently',
+    'Know when to stay in Agents vs open the Editor',
   ],
   blocks: [
     {
       type: 'paragraph',
       content:
-        'Cursor is built on VS Code, so the editor will feel familiar. What is new is the AI woven into every layer — autocomplete as you type, a chat panel for questions, and Composer for multi-file agent work. This lesson maps the interface so you always know which tool to reach for.',
+        'Modern Cursor (version 3+) is agent-first. The Agents Window is the main place you talk to AI, run tasks, and review changes. The Editor is the classic VS Code-style view for reading code, using extensions, and splitting files. Most beginners get stuck because they expect one screen to do everything — in practice, you move between both.',
     },
     {
       type: 'screenshot',
       description:
-        'The full Cursor window with the Chat panel, editor, sidebar, Activity Bar, and terminal labeled.',
+        'Capture the full Agents Window: agent conversation in the center, the list of active agents or sessions on one side, the prompt box at the bottom, and the workspace/repo name visible at the top. Annotate "Agents area", "Prompt input", and "Session list" if possible.',
     },
-    { type: 'heading', content: 'Chat vs Composer vs Inline Edit', level: 2 },
-    {
-      type: 'paragraph',
-      content:
-        'These three modes are the foundation of Cursor. Picking the right one saves time and keeps changes reviewable.',
-    },
+    { type: 'heading', content: 'Two Views: Agents Window vs Editor', level: 2 },
     {
       type: 'list',
       items: [
-        'Chat (⌘L) — Ask questions, get explanations, and make focused edits. You review each change. Best for learning and single-file work.',
-        'Composer / Agent (⌘I) — Autonomous multi-step mode. Reads many files, creates new ones, runs terminal commands. Best for features and refactors.',
-        'Inline Edit (⌘K) — Select code in the editor, describe a change, and see a diff inline. Best for small, local edits.',
+        'Agents Window — Primary AI workspace. Start agents, manage parallel tasks, review diffs, work across repos. Best when AI is doing most of the work.',
+        'Editor Window — Classic IDE. File tree, tabs, extensions, Outline, Timeline. Best when you want to read many files at once or edit by hand.',
+        'You can use both — many developers keep Agents open for tasks and switch to Editor to inspect results.',
+      ],
+    },
+    {
+      type: 'steps',
+      items: [
+        {
+          title: 'Open the Agents Window',
+          content: 'Press ⌘Shift+P (Ctrl+Shift+P on Windows/Linux), type "Open Agents Window", and press Enter. Or use File → New Agent Window.',
+        },
+        {
+          title: 'Open the Editor',
+          content: 'Press ⌘Shift+P → "Open Editor Window". This opens your project in the familiar VS Code-style layout.',
+        },
+        {
+          title: 'Switch anytime',
+          content: 'Neither view replaces the other. Use Command Palette to jump back and forth as your task changes.',
+        },
       ],
     },
     {
       type: 'screenshot',
       description:
-        'Chat panel on the right compared with the Composer view, showing how each mode looks side by side.',
-    },
-    {
-      type: 'comparison',
-      label: 'Quick decision guide',
-      bad: 'Open Composer to ask "What does this function do?"',
-      good: 'Chat + @file: "Explain formatCurrency and list edge cases."',
+        'Capture the Command Palette (⌘Shift+P) with "Open Agents Window" highlighted in the results list, and optionally a second crop showing "Open Editor Window" as well.',
     },
     {
       type: 'tip',
       content:
-        'When in doubt: Chat to understand, Composer to build, ⌘K to tweak a selection.',
+        'If you do not see "Open Agents Window", update Cursor (Cursor → Check for Updates) and ensure your team has Agents Window enabled in settings.',
     },
     { type: 'divider' },
-    { type: 'heading', content: 'Activity Bar & Sidebars', level: 2 },
+    { type: 'heading', content: 'The Agents Window (Main AI Interface)', level: 2 },
     {
       type: 'paragraph',
       content:
-        'The Activity Bar is the vertical icon strip on the far left. Each icon opens a sidebar panel.',
-    },
-    {
-      type: 'screenshot',
-      description:
-        'The Activity Bar on the left with Explorer, Search, Source Control, and Extensions icons highlighted.',
+        'Think of the Agents Window as mission control. You describe what you want, the agent reads your project, edits files, runs commands, and shows you diffs to accept or reject.',
     },
     {
       type: 'list',
       items: [
-        'Explorer — Browse files. Right-click → "Add to Chat" to attach a file as context instantly.',
-        'Search — Find text project-wide. Great before refactors; pair results with @ mentions.',
-        'Source Control — Git status, diffs, staging. Use with @Git in prompts for AI code review.',
-        'Extensions — Same as VS Code. Add language support, themes, and linters.',
+        'Agent sessions — Each task gets its own conversation. You can run multiple agents in parallel (local or cloud).',
+        'Prompt input — Where you type instructions and attach context with @ (files, folders, git, terminal).',
+        'Diffs view — See every file the agent changed before accepting. Review is always your job.',
+        'Multi-workspace — Work with agents across different repos from one place (Cursor 3+).',
+        'Worktrees — Agents can work in isolated git checkouts so parallel tasks do not collide.',
       ],
+    },
+    {
+      type: 'screenshot',
+      description:
+        'Capture an active agent session in the Agents Window: a written prompt at the bottom, @-attached files visible in the input area, and the agent\'s response with a list of modified files and diff previews above.',
+    },
+    {
+      type: 'comparison',
+      label: 'Where to work',
+      bad: 'Try to read ten files at once inside the Agents Window.',
+      good: 'Run the agent in Agents Window → switch to Editor (⌘Shift+P → Open Editor Window) to inspect files in tabs.',
+    },
+    { type: 'divider' },
+    { type: 'heading', content: 'The Editor: Files & Code', level: 2 },
+    {
+      type: 'paragraph',
+      content:
+        'The Editor is where you see your project structure and code. If you have used VS Code, this will feel familiar.',
+    },
+    {
+      type: 'screenshot',
+      description:
+        'Capture the Editor Window with these areas labeled: (1) Activity Bar on the far left, (2) File Explorer sidebar showing a project tree, (3) open file tabs in the center editor, (4) optional Outline panel showing symbols in the current file.',
+    },
+    {
+      type: 'heading', content: 'Activity Bar & File Explorer', level: 3 },
+    {
+      type: 'paragraph',
+      content:
+        'The Activity Bar is the narrow vertical strip on the far left. The top icon (files icon) opens the Explorer — your file tree.',
     },
     {
       type: 'steps',
       items: [
         {
-          title: 'Open the Explorer',
-          content: 'Click the top icon on the Activity Bar (or press ⌘Shift+E). This is your home base for navigating the project.',
+          title: 'Show the Explorer',
+          content: 'Click the top Activity Bar icon or press ⌘Shift+E. Your project folders and files appear in the sidebar.',
         },
         {
-          title: 'Attach a file to Chat',
-          content: 'Right-click any file → "Add to Chat". The file appears as an @ mention in your prompt automatically.',
+          title: 'Open a file',
+          content: 'Click any file in the tree — it opens in a tab in the center. Or press ⌘P and type the filename (Quick Open).',
         },
         {
-          title: 'Review git changes',
-          content: 'Open Source Control (⌘Shift+G), click a changed file to see the diff, then use @Git in Chat to ask for a review.',
+          title: 'Open a folder',
+          content: 'File → Open Folder… Choose your project root. Cursor needs an open folder for agents to access your code.',
         },
       ],
     },
-    { type: 'divider' },
-    { type: 'heading', content: 'The Editor (Center Panel)', level: 2 },
     {
       type: 'list',
       items: [
-        'Tabs — Keep related files open when using Composer so you can jump between diffs quickly.',
-        'Ghost text — AI autocomplete suggestions. Tab to accept, Esc to dismiss.',
-        'Diff view — Green = added, red = removed. Always read diffs before accepting.',
-        'Breadcrumbs — Navigate nested symbols. Reference line numbers in prompts for precision.',
+        'Explorer (⌘Shift+E) — Browse, create, rename files and folders.',
+        'Search (⌘Shift+F) — Find text across the whole project.',
+        'Source Control (⌘Shift+G) — Git changes, diffs, commit.',
+        'Extensions — Add language support, themes, linters (same as VS Code).',
       ],
     },
     {
       type: 'screenshot',
       description:
-        'Inline autocomplete (ghost text) in the editor, plus a diff view showing accepted AI changes.',
+        'Capture the Activity Bar with callouts on Explorer, Search, Source Control, and Extensions icons. The Explorer sidebar should be open showing a realistic src/ folder tree.',
     },
-    { type: 'heading', content: 'Terminal Integration', level: 2 },
+    { type: 'heading', content: 'Outline & Timeline Panels', level: 3 },
     {
       type: 'paragraph',
       content:
-        'The integrated terminal runs real commands in your project folder — npm, git, docker, tests. Cursor can read its output when you use @Terminal in a prompt.',
+        'These optional panels live in the sidebar below the Explorer. They help you navigate without scrolling huge files.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Outline — Lists functions, classes, and symbols in the current file. Open via View → Open View → Outline, or the "..." menu in the Explorer sidebar.',
+        'Timeline — Shows local file history and git commits for the active file. Useful to see recent changes.',
+        'If you do not see them: right-click the Explorer sidebar title bar → add Outline or Timeline from the panel list.',
+      ],
     },
     {
       type: 'screenshot',
       description:
-        'The integrated terminal at the bottom showing a failed test command and error output.',
+        'Capture the Editor with the Outline panel expanded below the file tree, showing functions/classes listed for an open .tsx or .ts file.',
+    },
+    { type: 'divider' },
+    { type: 'heading', content: 'Inline Edit in the Editor (⌘K)', level: 2 },
+    {
+      type: 'paragraph',
+      content:
+        'Even with the Agents Window as the main AI surface, inline edit remains the fastest way to change a small block of code. Select code in the Editor, press ⌘K, describe the change, and review the inline diff.',
+    },
+    {
+      type: 'screenshot',
+      description:
+        'Capture the Editor with a code selection highlighted, the inline edit prompt box open (⌘K), and ghost-text autocomplete visible on another line.',
+    },
+    { type: 'divider' },
+    { type: 'heading', content: 'Terminal', level: 2 },
+    {
+      type: 'paragraph',
+      content:
+        'The terminal runs at the bottom of the Editor (and is available in agent workflows). Use it for npm, git, tests, and dev servers.',
     },
     {
       type: 'steps',
       items: [
         {
-          title: 'Open the terminal',
-          content: 'Press Ctrl+` (backtick) or View → Terminal. It opens in your project root by default.',
+          title: 'Open terminal',
+          content: 'In the Editor: Ctrl+` (backtick) or View → Terminal. Opens in your project root.',
         },
         {
-          title: 'Run your command',
-          content: 'Execute npm test, npm run dev, or any shell command as you normally would.',
+          title: 'Run commands',
+          content: 'npm test, npm run dev, git status — same as any terminal.',
         },
         {
-          title: 'Share output with AI',
-          content: 'In Chat, type @Terminal and ask Cursor to diagnose the error. No need to copy-paste manually.',
+          title: 'Share with agents',
+          content: 'In the Agents Window, type @Terminal in your prompt so the agent reads recent output without copy-paste.',
         },
       ],
+    },
+    {
+      type: 'screenshot',
+      description:
+        'Capture the Editor with the terminal panel open at the bottom showing a failed npm test command, red error text, and a file path in the stack trace visible.',
     },
     {
       type: 'code',
-      title: 'Example: debug with terminal context',
+      title: 'Debug prompt with terminal context',
       language: 'text',
       content: `@Terminal @src/auth/login.ts
 
 npm test failed on the login suite. Find the root cause and propose a minimal fix.`,
     },
     { type: 'divider' },
-    { type: 'heading', content: 'Context with @ Mentions', level: 2 },
+    { type: 'heading', content: 'Search & Command Palette', level: 2 },
     {
       type: 'paragraph',
       content:
-        '@ mentions are how you attach context. Without them, Cursor guesses. With them, it reads exactly what you point at.',
+        'Two different tools — beginners confuse them constantly.',
     },
     {
       type: 'list',
       items: [
-        '@Files / @Folders — Specific paths in your project',
-        '@Code — Jump to a function, class, or symbol by name',
-        '@Docs — Indexed library documentation',
-        '@Web — Live web search for up-to-date answers',
-        '@Git — Your current diff or recent commits',
+        'Quick Open (⌘P) — Jump to a file by name. Type "Button.tsx" and open it instantly.',
+        'Search in Files (⌘Shift+F) — Find text across the project. Great before refactors.',
+        'Command Palette (⌘Shift+P) — Run any action: open Agents Window, format document, git commit, toggle panels.',
+      ],
+    },
+    {
+      type: 'screenshot',
+      description:
+        'Capture two side-by-side crops: (left) Quick Open (⌘P) with a filename typed and results listed; (right) Command Palette (⌘Shift+P) with "Agents" typed showing agent-related commands.',
+    },
+    { type: 'divider' },
+    { type: 'heading', content: 'Context with @ Mentions', level: 2 },
+    {
+      type: 'paragraph',
+      content:
+        'In the Agents Window prompt (and inline edit), @ attaches context. This is the single most important habit for good results.',
+    },
+    {
+      type: 'list',
+      items: [
+        '@Files / @Folders — Point at specific paths',
+        '@Code — Reference a symbol by name',
+        '@Docs — Library documentation',
+        '@Web — Live web search',
+        '@Git — Current diff or recent commits',
         '@Terminal — Recent command output',
       ],
     },
     {
-      type: 'code',
-      title: 'Example: file reference in Chat',
-      language: 'text',
-      content: `@src/components/Button.tsx
-
-How does disabled state work? Suggest one improvement without changing the public API.`,
+      type: 'screenshot',
+      description:
+        'Capture the Agents Window prompt input with the @ menu dropdown open, showing options: Files, Folders, Code, Git, Terminal, Docs, and Web.',
     },
-    { type: 'heading', content: 'Keyboard Shortcuts Overview', level: 2 },
+    { type: 'heading', content: 'Essential Shortcuts', level: 2 },
     {
       type: 'paragraph',
-      content: 'On Windows/Linux, use Ctrl instead of ⌘. Learn these five first:',
+      content: 'Windows/Linux: use Ctrl instead of ⌘.',
     },
-    { type: 'shortcut', keys: ['⌘', 'L'], description: 'Open / focus Chat' },
-    { type: 'shortcut', keys: ['⌘', 'I'], description: 'Open Composer (Agent)' },
-    { type: 'shortcut', keys: ['⌘', 'K'], description: 'Inline edit on selected code' },
-    { type: 'shortcut', keys: ['⌘', 'Shift', 'L'], description: 'Add selection to Chat context' },
-    { type: 'shortcut', keys: ['⌘', 'P'], description: 'Quick Open — jump to any file by name' },
-    { type: 'shortcut', keys: ['⌘', 'Shift', 'P'], description: 'Command Palette — search any action' },
-    { type: 'shortcut', keys: ['Ctrl', '`'], description: 'Toggle integrated terminal' },
+    { type: 'shortcut', keys: ['⌘', 'Shift', 'P'], description: 'Command Palette — open Agents Window, Editor, any action' },
+    { type: 'shortcut', keys: ['⌘', 'P'], description: 'Quick Open — jump to a file (works in both views)' },
+    { type: 'shortcut', keys: ['⌘', 'Shift', 'E'], description: 'Show File Explorer (Editor)' },
+    { type: 'shortcut', keys: ['⌘', 'K'], description: 'Inline edit on selected code (Editor)' },
+    { type: 'shortcut', keys: ['Ctrl', '`'], description: 'Toggle terminal (Editor)' },
+    { type: 'shortcut', keys: ['⌘', 'Shift', 'F'], description: 'Search across all files' },
     { type: 'shortcut', keys: ['Tab'], description: 'Accept autocomplete suggestion' },
     {
       type: 'tip',
       content:
-        'Press ⌘Shift+P, type "keyboard shortcuts", and search "cursor" to see every AI binding. Customize any shortcut to match your workflow.',
+        'Navigation cheat sheet: Agents Window for doing work with AI → Editor for reading code → Terminal for running commands → ⌘Shift+P to switch views.',
     },
   ],
 }

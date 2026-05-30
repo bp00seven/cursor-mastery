@@ -5,49 +5,49 @@ export const workflowsLesson: Lesson = {
   sectionId: 'workflows',
   title: 'Common Workflows',
   description:
-    'End-to-end playbooks for the situations you hit every week — new projects, refactors, bugs, and features.',
+    'End-to-end playbooks for real work — new projects, refactors, debugging, and features — using the Agents Window and Editor together.',
   duration: '14 min read',
   objectives: [
-    'Scaffold a new web app in manageable layers',
-    'Refactor existing code without breaking behavior',
-    'Debug systematically with terminal and @ context',
-    'Add features that match your codebase patterns',
+    'Scaffold a new app in the Agents Window step by step',
+    'Refactor safely with Plan mode and diff review',
+    'Debug using @Terminal in agent prompts',
+    'Add features by pointing agents at reference code',
   ],
   blocks: [
     {
       type: 'paragraph',
       content:
-        'These workflows are copy-paste starting points. Swap in your paths, run them in Composer or Chat, and adapt as you learn what works in your repo.',
+        'These workflows assume Cursor 3\'s agent-first layout: do work in the Agents Window, inspect code in the Editor, run commands in the terminal. Copy the prompts, swap in your paths, and commit after each successful step.',
     },
     { type: 'heading', content: 'Building a New Web App from Scratch', level: 2 },
     {
       type: 'paragraph',
       content:
-        'Never ask for the entire app in one prompt. Layer the work: setup → layout → features → polish. Commit after each successful layer.',
+        'Layer the work: open folder → .cursorrules → scaffold → layout → one feature at a time. Never ask for the whole app in one prompt.',
     },
     {
       type: 'screenshot',
       description:
-        'An empty project folder in Cursor with Composer open, ready to scaffold a new app.',
+        'Capture the Agents Window with a brand-new empty folder as workspace: first agent prompt visible ("Create React + TypeScript Vite app…"), no files in any diff list yet, and File Explorer (in Editor Window, second screenshot or inset) showing an empty or nearly empty folder.',
     },
     {
       type: 'steps',
       items: [
         {
-          title: 'Open an empty folder',
-          content: 'File → Open Folder. Create .cursorrules describing your stack (React, TypeScript, etc.).',
+          title: 'Open folder & rules',
+          content: 'File → Open Folder in Editor. Add .cursorrules describing stack and conventions.',
         },
         {
-          title: 'Scaffold the project (Composer)',
-          content: 'Run the Step 1 prompt below. Verify npm run dev works before continuing.',
+          title: 'Open Agents Window',
+          content: '⌘Shift+P → Open Agents Window. Confirm the correct folder is active.',
         },
         {
-          title: 'Add layout shell',
-          content: 'Routing, nav, placeholder pages. Match patterns you want for the whole app.',
+          title: 'Scaffold (Agent mode)',
+          content: 'Run Step 1 prompt below. Review diffs. Accept. Run npm run dev in Editor terminal.',
         },
         {
-          title: 'Build one feature at a time',
-          content: 'Each feature gets its own Composer session + commit. Run tests between steps.',
+          title: 'Features one at a time',
+          content: 'New agent session per feature. Commit after each green test run.',
         },
       ],
     },
@@ -60,7 +60,8 @@ export const workflowsLesson: Lesson = {
 Include: src/components, src/pages, src/hooks, src/lib
 React Router with Home placeholder
 Dark theme CSS variables
-npm install && npm run dev — fix any errors`,
+
+Run npm install && npm run dev. Fix any errors.`,
     },
     {
       type: 'code',
@@ -76,7 +77,7 @@ No backend yet.`,
     },
     {
       type: 'tip',
-      content: 'Commit after each step. If Composer goes off track, git reset beats untangling a giant diff.',
+      content: 'Commit after each step. git reset beats untangling a giant agent diff.',
     },
     { type: 'divider' },
     { type: 'heading', content: 'Refactoring Existing Code', level: 2 },
@@ -85,26 +86,26 @@ No backend yet.`,
       items: [
         {
           title: 'Green tests first',
-          content: 'Run the test suite. Attach failures with @Terminal if anything is already broken.',
+          content: 'Editor terminal: npm test. Attach @Terminal if already failing.',
         },
         {
-          title: 'Map impact (Chat)',
-          content: '"What files import @src/legacy/parser.ts?" Understand blast radius before editing.',
+          title: 'Map impact (Ask mode)',
+          content: '"What files import @src/legacy/parser.ts?" Understand blast radius.',
         },
         {
-          title: 'Mechanical change (Composer)',
-          content: 'One transformation: rename, extract, or move. Reject drive-by improvements.',
+          title: 'Mechanical change (Agent mode)',
+          content: 'One transformation. Reject drive-by refactors in diffs view.',
         },
         {
-          title: 'Verify and commit',
-          content: 'Tests pass. Commit message describes only the refactor.',
+          title: 'Verify & commit',
+          content: 'Tests pass. Commit describes only the refactor.',
         },
       ],
     },
     {
       type: 'screenshot',
       description:
-        'Source Control showing a refactor with multiple files changed and side-by-side diffs.',
+        'Capture the Agents Window diffs view after a refactor: 3–5 files listed as changed, one file\'s diff open showing a rename or extract (green/red lines), Accept button visible but not yet clicked.',
     },
     {
       type: 'code',
@@ -123,27 +124,27 @@ Extract sorting into src/hooks/useTableSort.ts:
     {
       type: 'paragraph',
       content:
-        'Debugging works best when you give Cursor the error, the stack trace, and the suspect files — then ask it to explain before fixing.',
+        'Reproduce in Editor terminal → prompt in Agents Window with @Terminal + suspect @Files → ask for root cause before fix.',
     },
     {
       type: 'screenshot',
       description:
-        'Chat with @Terminal attached, displaying a stack trace and error output in the conversation.',
+        'Capture the Agents Window with an agent conversation showing @Terminal and @src/... attached as chips, the user prompt quoting an error message, and the agent\'s response explaining root cause (above any diff). Optionally include Editor terminal with the same error visible.',
     },
     {
       type: 'steps',
       items: [
         {
-          title: 'Reproduce the bug',
-          content: 'Run the failing command in terminal. Capture the exact error message.',
+          title: 'Reproduce',
+          content: 'Run failing command in Editor terminal. Copy exact error if needed.',
         },
         {
-          title: 'Prompt for root cause',
+          title: 'Diagnose (Ask or Agent mode)',
           content: '@Terminal + @Files — "Explain root cause before proposing a fix."',
         },
         {
-          title: 'Apply minimal fix',
-          content: 'Review the diff. Re-run the command. Iterate in the same chat if needed.',
+          title: 'Fix & verify',
+          content: 'Review diff. Re-run command. Iterate in same agent session.',
         },
       ],
     },
@@ -165,12 +166,12 @@ POST /orders returns 500:
     {
       type: 'paragraph',
       content:
-        'Always attach a similar feature as a reference. Describe your feature as differences from that reference.',
+        'Attach a similar feature as reference. Describe your feature as differences from that pattern.',
     },
     {
       type: 'screenshot',
       description:
-        'Composer with @src/features/products/ attached as context while building a new feature.',
+        'Capture the Agents Window prompt before sending: @src/features/products/ folder attached, prompt text "Add categories feature modeled after products…", Agent mode selected.',
     },
     {
       type: 'code',
@@ -197,7 +198,7 @@ Add OrderShipped template. Test trigger only — mock sendEmail.`,
     {
       type: 'tip',
       content:
-        'Before merging: "@Git — review my changes for bugs and missing edge cases." A fast second pair of eyes.',
+        'Before merging: new agent in Ask mode — "@Git @src/ — review my changes for bugs and missing edge cases."',
     },
   ],
 }

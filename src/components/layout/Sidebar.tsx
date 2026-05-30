@@ -79,8 +79,8 @@ export function Sidebar({ activeSection, onSelect }: SidebarProps) {
 
       <footer className="sidebar__footer">
         <p className="sidebar__footer-tip">
-          <strong>Tip:</strong> Work through lessons in order, then grab prompts from
-          the Library.
+          <strong>Start here:</strong> Lesson 1 explains Agents Window vs Editor —
+          the #1 source of beginner confusion.
         </p>
       </footer>
     </aside>

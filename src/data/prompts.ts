@@ -48,7 +48,7 @@ Error: [paste error message and stack trace]
     title: 'Scaffold Web App',
     category: 'New Project',
     description: 'Step 1 of building a new React + TypeScript app with Vite.',
-    tags: ['scaffold', 'vite', 'react', 'composer'],
+    tags: ['scaffold', 'vite', 'react', 'agents'],
     prompt: `Create a React + TypeScript app with Vite in this folder.
 
 Include:
@@ -64,7 +64,7 @@ Match modern best practices. Add a brief README.`,
     title: 'Add Feature from Reference',
     category: 'Feature',
     description: 'Model a new feature after an existing one in the codebase.',
-    tags: ['feature', 'existing-project', 'composer'],
+    tags: ['feature', 'existing-project', 'agents'],
     prompt: `@src/features/[similar-feature]/
 
 Add [new feature name] modeled after [similar feature]:
@@ -135,7 +135,7 @@ Include body bullets only if the change is complex.`,
     title: 'Plan Before Building',
     category: 'Planning',
     description: 'Get an implementation plan without any file edits.',
-    tags: ['plan', 'composer', 'architecture'],
+    tags: ['plan', 'agents', 'architecture'],
     prompt: `@src/
 
 I want to [describe feature or change]. Plan only — do not edit files.
@@ -166,7 +166,7 @@ Do only this step:
     title: 'Limit Scope',
     category: 'Workflow',
     description: 'Recover when the agent edits too many files.',
-    tags: ['scope', 'recovery', 'composer'],
+    tags: ['scope', 'recovery', 'agents'],
     prompt: `Stop. You changed files outside the intended scope.
 
 Revert changes to: [list files or folders]

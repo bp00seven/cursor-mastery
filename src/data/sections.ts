@@ -1,24 +1,24 @@
 import type { Section } from '../types'
 
-/** Ordered for a natural learning path: layout → agent → prompts → workflows → power tips */
+/** Ordered for a natural learning path: layout → agents → prompts → workflows → power tips */
 export const sections: Section[] = [
   {
     id: 'interface',
     title: 'Cursor Interface',
     icon: '◫',
-    description: 'Chat vs Composer, panels, terminal, shortcuts',
+    description: 'Agents Window, Editor, panels, and navigation',
   },
   {
     id: 'composer',
-    title: 'Composer',
+    title: 'Agents Window',
     icon: '⬡',
-    description: 'Multi-file agent mode, diffs, and when to use it',
+    description: 'Run agents, review diffs, parallel workflows',
   },
   {
     id: 'prompting',
     title: 'Prompting',
     icon: '✦',
-    description: 'Context, .cursorrules, and step-by-step tasks',
+    description: 'Context, rules, and step-by-step agent prompts',
   },
   {
     id: 'workflows',
@@ -30,7 +30,7 @@ export const sections: Section[] = [
     id: 'tips',
     title: 'Pro Tips',
     icon: '⌘',
-    description: 'Shortcuts, Command Palette, Git, and workspaces',
+    description: 'Shortcuts, Command Palette, Git, workspaces',
   },
   {
     id: 'resources',
