@@ -77,7 +77,13 @@ export function ContentBlockRenderer({ block }: ContentBlockRendererProps) {
       )
 
     case 'screenshot':
-      return <ScreenshotPlaceholder description={block.description} />
+      return (
+        <ScreenshotPlaceholder
+          description={block.description}
+          src={block.src}
+          alt={block.alt}
+        />
+      )
 
     case 'steps':
       return (

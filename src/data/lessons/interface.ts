@@ -21,8 +21,10 @@ export const interfaceLesson: Lesson = {
     },
     {
       type: 'screenshot',
+      src: '/screenshots/cursor-interface-overview.png',
+      alt: 'Cursor workspace showing the tutorial app in the editor, file explorer, Composer panel with Agent mode, and the Vite dev server terminal',
       description:
-        'Capture the full Agents Window: agent conversation in the center, the list of active agents or sessions on one side, the prompt box at the bottom, and the workspace/repo name visible at the top. Annotate "Agents area", "Prompt input", and "Session list" if possible.',
+        'Full Cursor layout: Editor with your project, File Explorer on the left, Composer (Agents) on the right with the prompt box and mode selector, and the integrated terminal at the bottom.',
     },
     { type: 'heading', content: 'Two Views: Agents Window vs Editor', level: 2 },
     {
@@ -52,8 +54,10 @@ export const interfaceLesson: Lesson = {
     },
     {
       type: 'screenshot',
+      src: '/screenshots/cursor-actions-menu.png',
+      alt: 'Agents Window with the Actions menu open, showing Open Editor Window and other agent shortcuts',
       description:
-        'Capture the Command Palette (⌘Shift+P) with "Open Agents Window" highlighted in the results list, and optionally a second crop showing "Open Editor Window" as well.',
+        'Agents Window Actions menu: search or pick commands like Open Editor Window (⇧⌘N), New Agent, and tile controls — another way to switch views besides the Command Palette.',
     },
     {
       type: 'tip',
@@ -79,8 +83,10 @@ export const interfaceLesson: Lesson = {
     },
     {
       type: 'screenshot',
+      src: '/screenshots/cursor-agent-session.png',
+      alt: 'Active Agents Window session with chat history, follow-up prompt, live app preview, and pending review changes',
       description:
-        'Capture an active agent session in the Agents Window: a written prompt at the bottom, @-attached files visible in the input area, and the agent\'s response with a list of modified files and diff previews above.',
+        'Active agent session: conversation and task history on the left, your prompt at the bottom, the running app preview in the center, and a Review badge when the agent has edits ready to accept.',
     },
     {
       type: 'comparison',

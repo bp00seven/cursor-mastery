@@ -1,8 +1,33 @@
 interface ScreenshotPlaceholderProps {
   description: string
+  src?: string
+  alt?: string
 }
 
-export function ScreenshotPlaceholder({ description }: ScreenshotPlaceholderProps) {
+export function ScreenshotPlaceholder({ description, src, alt }: ScreenshotPlaceholderProps) {
+  if (src) {
+    return (
+      <figure className="screenshot-ph" aria-label={alt ?? description}>
+        <div className="screenshot-ph__frame">
+          <div className="screenshot-ph__chrome" aria-hidden="true">
+            <span className="screenshot-ph__dot screenshot-ph__dot--red" />
+            <span className="screenshot-ph__dot screenshot-ph__dot--yellow" />
+            <span className="screenshot-ph__dot screenshot-ph__dot--green" />
+            <span className="screenshot-ph__chrome-bar" />
+          </div>
+          <img
+            className="screenshot-ph__img"
+            src={src}
+            alt={alt ?? description}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption className="screenshot-ph__caption">{description}</figcaption>
+      </figure>
+    )
+  }
+
   return (
     <figure className="screenshot-ph" aria-label={`Screenshot placeholder: ${description}`}>
       <div className="screenshot-ph__frame">

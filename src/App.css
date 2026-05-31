@@ -604,6 +604,21 @@ h3.lesson__heading {
   border-radius: 4px;
 }
 
+.screenshot-ph__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.screenshot-ph__caption {
+  margin-top: 0.625rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-align: center;
+}
+
 .screenshot-ph__body {
   display: flex;
   flex-direction: column;

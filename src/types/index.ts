@@ -21,7 +21,7 @@ export type ContentBlock =
   | { type: 'tip'; content: string }
   | { type: 'comparison'; label: string; bad: string; good: string }
   | { type: 'shortcut'; keys: string[]; description: string }
-  | { type: 'screenshot'; description: string }
+  | { type: 'screenshot'; description: string; src?: string; alt?: string }
   | { type: 'steps'; items: { title: string; content: string }[] }
   | { type: 'divider' }
 
